@@ -29,16 +29,20 @@ for entry in matchList:
     matchScore.append(entry.text)
 
 matchHA = []
+matchCompetitor = []
 for match in matchName:
     if (str(match)[0:17] == 'Manchester United'):
         matchHA.append('H')
+        matchCompetitor.append(match[20: len(match)])
     else:
         matchHA.append('A')
+        matchCompetitor.append(match[0: len(match) - 1 - 19])
 
 df = pd.DataFrame({'Match':matchName,
                     'Result':matchResult,
                     'Score': matchScore,
-                    'Home-Away': matchHA})
+                    'Home-Away': matchHA,
+                    'Competitor': matchCompetitor})
 
 df.to_excel('data.xlsx', sheet_name='season21_22')
 
