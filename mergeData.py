@@ -14,5 +14,5 @@ for label in df_merged.columns:
     else:
         # https://www.geeksforgeeks.org/delete-a-csv-column-in-python/
         df_merged.pop(label)
-
+df_merged = df_merged.dropna()
 df_merged.to_csv(".\\Data\\merged.csv")
